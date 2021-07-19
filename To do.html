@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>To do List.</title>
+        <script>
+            function addList() {
+                var Task = document.getElementById("task");
+                var List = document.getElementById("list");
+                var temp = document.createElement("li");
+
+                temp.innerHTML = Task.value;
+                temp.addEventListener("click",
+                        function() {
+                            this.style.textDecoration = "line-through";
+                        });
+                List.appendChild(temp);
+                Task.value = null;
+            }
+
+            function pressEnter() {
+                if(event.keyCode == 13){
+                    addList();
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>To do list.</h3>
+        <hr>
+        <div>
+            할 일 : <input type="text" id="task" onkeydown="pressEnter()">
+            <ul id="list">
+            </ul>
+        </div>
+    </body>
+</html>
